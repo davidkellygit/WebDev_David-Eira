@@ -1,0 +1,29 @@
+{
+  "name": "webdev_david-eira",
+  "version": "1.0.0",
+  "description": "Web Dev. Pair Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidkellygit/WebDev_David-Eira.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidkellygit/WebDev_David-Eira/issues"
+  },
+  "homepage": "https://github.com/davidkellygit/WebDev_David-Eira#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
