@@ -1,7 +1,14 @@
 export default function InstrumentItem({item}){
     return (
         <>
-        {item.name}
+            <div className="col-3">
+
+                <br/>
+                <p>{item.name}</p>
+                <p>{item.inst}</p>
+                                
+            </div>
+        
         </>
     )
 }
