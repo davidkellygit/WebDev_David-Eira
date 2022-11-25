@@ -15,6 +15,8 @@ function Header() {
     navigate('/')
   }
 
+  
+
   return (
     <>
     <header className='header'>

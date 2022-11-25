@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/davidkellygit/WebDev_David-Eira#readme",
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.15",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
     "colors": "^1.4.0",
@@ -34,7 +37,7 @@
     "uuid": "^3.4.0"
   },
   "devDependencies": {
-    "concurrently": "^7.5.0",
+    "concurrently": "^7.6.0",
     "nodemon": "^2.0.20"
   }
 }
