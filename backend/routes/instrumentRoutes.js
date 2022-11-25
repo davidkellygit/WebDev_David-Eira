@@ -1,11 +1,12 @@
 const express = require('express')
 const router = express.Router()
-const { getInstruments, getAllInstruments, setInstrument, updateInstrument, deleteInstrument } = require('../controllers/instrumentController')
+const { getInstruments, getAllInstruments, getSheetByID, setInstrument, updateInstrument, deleteInstrument } = require('../controllers/instrumentController')
 
 const {protect} = require('../middleware/authMiddleware')
 
 
 router.get('/', protect, getInstruments)
+router.get('/sheet/:id', getSheetByID)
 router.get('/all', getAllInstruments)
 
 router.post('/', protect, setInstrument)

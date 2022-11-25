@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: false}))
 
 app.use('/api/instruments', require('./routes/instrumentRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
+app.use('/api/uploads', require('./routes/uploadRoutes'))
 
 
 app.use(errorHandler)

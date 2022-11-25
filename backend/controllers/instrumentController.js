@@ -16,6 +16,17 @@ const getInstruments = asyncHandler(async (req, res) => {
 // @desc    Get instruments
 // @route   GET /api/instruments
 // @access  Private
+const getSheetByID = asyncHandler(async (req, res) => {
+    const instruments = await Instrument.findOne({ _id: req.params.id })
+
+    res.status(200).json(instruments)
+
+})
+
+
+// @desc    Get instruments
+// @route   GET /api/instruments
+// @access  Private
 const getAllInstruments = asyncHandler(async (req, res) => {
     const instruments = await Instrument.find()
 
@@ -35,7 +46,8 @@ const setInstrument = asyncHandler(async (req, res) => {
 
     const instrument = await Instrument.create({
         name: req.body.name,
-        type: req.body.type,
+        inst: req.body.type,
+        inst2: req.body.type2,
         onLoan: req.body.onLoan,
         user: req.user.id,
     })
@@ -115,6 +127,7 @@ const deleteInstrument = asyncHandler(async (req, res) => {
 
 module.exports = {
     getInstruments, 
+    getSheetByID,
     getAllInstruments,
     setInstrument, 
     updateInstrument,

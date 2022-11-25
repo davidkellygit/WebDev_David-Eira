@@ -1,5 +1,5 @@
 import React from 'react'
-import {FaSignInAlt, FaSignOutAlt, FaUser} from 'react-icons/fa'
+import {FaSignInAlt, FaSignOutAlt, FaUser, FaFileUpload} from 'react-icons/fa'
 import {Link, useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {logout, reset} from '../features/auth/authSlice'
@@ -16,17 +16,25 @@ function Header() {
   }
 
   return (
+    <>
     <header className='header'>
         <div className='logo'>
-            <Link to='/'>GoalSetter</Link>
+            <Link to='/'>InstruRent</Link>
         </div>
         <ul>
             {user ? (
+            <>  
+            <li>
+                <Link to='/upload'>
+                  <FaFileUpload /> Upload
+                </Link>
+            </li>  
             <li>
                 <button className='btn' onClick={onLogout}>
                   <FaSignOutAlt /> Logout
                 </button>
             </li>
+            </>
             ) : (
             <>
             <li>
@@ -43,7 +51,7 @@ function Header() {
           
         </ul>
     </header>
-
+    </>
   )
 }
 

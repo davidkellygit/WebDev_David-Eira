@@ -9,15 +9,20 @@ const instrumentSchema = mongoose.Schema(
         },
         name: {
             type: String,
-            required: [true, 'Please add a text value']
+            required: [true, 'Please add the name of your score']
         },
-        type: {
+        inst: {
             type: String,
-            required: [true, 'Please add instrument type']
+            required: [true, 'Please add instrumentation']
+        },
+        inst2: {
+            type: String,
+            required: [false, 'Please add additional instrumentation']
         },
         onLoan: {
             type: Boolean,
-            required: [true]
+            required: [false],
+            default: false,
         },
 
     }, 
