@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { register, reset } from '../features/auth/authSlice'
-import {FaFileUpload} from 'react-icons/fa'
+import {FaFileUpload, FaUserEdit} from 'react-icons/fa'
 
 
 function Profile() {
@@ -58,27 +58,33 @@ function Profile() {
 
     return (
         <>
+        <div className='bg-light'> 
+          <div className='container'>
+              <div className='row'>
+                  <div className='col'>
+                      <br/>
+                      <h2>My Scores</h2>
+                      <nav>
+                      <Link to='/upload'>
+                          <FaFileUpload /> Upload
+                      </Link> |
+                      <Link to={`/manage/${user._id}`}>
+                          <FaUserEdit /> Manage Profile
+                      </Link>
+                      </nav>
+                  </div>
+  
+              </div>
+              <div className="row">
 
-        <div className='container'>
-            <div className='row'>
-                <div className='col'>
-                    <h2>My Scores</h2>
-                    <Link to='/upload'>
-                        <FaFileUpload /> Upload
-                    </Link>
-                </div>
- 
-            </div>
-            <div className="row">
-
-                    {instruments && instruments.map((item) => {
-                    return(
-                        <InstrumentItem key={item._id} item = {item}/>
-                    )
-                    })}
-            </div>
+                      {instruments && instruments.map((item) => {
+                      return(
+                          <InstrumentItem key={item._id} item = {item}/>
+                      )
+                      })}
+              </div>
+          </div>
         </div>
-
         </>
         
     )

@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import InstrumentItem from '../components/InstrumentItem'
 import axios from 'axios'
+import {useSelector} from 'react-redux'
+
 
 function Dashboard() {
     // get all instruments
     const [instruments, setInstruments] = useState();
     const [filteredInstrument, setFilteredInstrument] = useState()
     const [query, setQuery] = useState("");
+    const {user} = useSelector((state) => state.auth)  
+
     // if(!instruments){
     //     getData()
     // }
@@ -41,7 +45,19 @@ function Dashboard() {
         <>
         {/*Makes Light Gray Background (Bootstrap)*/}
         <div className='bg-light'> 
-            <div>What score are you looking for?</div>
+            <br/>
+            {user ? (
+              <>
+              <h3>Welcome back {user.name}!</h3>
+              <div><p>What score are you looking for today</p></div>
+
+              </>
+              ) : (
+              <>
+                 <h3>Welcome!</h3>   
+                 <div><p>What score are you looking for?</p></div>
+              </>)}
+                
             <br/>
             <div>
                 <input type="text" placeholder="Search..." className="search" onChange={(event) => handleQueryChange(event)}/>

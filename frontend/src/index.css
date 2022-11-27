@@ -47,15 +47,36 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
-  /* border-bottom: 2px solid #00c3ff; */
-  margin-bottom: 60px;
+  padding: 30px 5px;
+  background-color: #00c3ff;
+  border-bottom: 2px solid #00c3ff;
+  /* margin-bottom: 60px; */
+}
+
+.logo {
+  padding: 10px;
+}
+
+.logo a {
+  color: white;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.logo a:hover {
+  color: yellow;
+  font-weight: bold;
+  font-size: xx-large;
 }
 
 .bg-info
 {
   padding-right: 50px;
   padding-left: 50px;
+}
+
+.header .btn:hover {
+  color: yellow
 }
 
 .header ul {
@@ -66,15 +87,17 @@ h3 {
 
 .header ul li {
   margin-left: 20px;
+  padding-right: 5px;
 }
 
 .header ul li a {
   display: flex;
   align-items: center;
+  color: white;
 }
 
 .header ul li a:hover {
-  color: #777;
+  color: yellow;
 }
 
 .header ul li a svg {
@@ -137,9 +160,9 @@ h3 {
 
 .btn {
   padding: 10px 20px;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   border-radius: 5px;
-  background: #000;
+  background: rgb(75, 75, 75);
   color: #fff;
   font-size: 16px;
   font-weight: 700;
@@ -151,13 +174,36 @@ h3 {
   justify-content: center;
 }
 
+.btn-danger {
+  padding: 10px 20px;
+  /* border: 1px solid #000; */
+  border-radius: 5px;
+  background: rgb(255, 0, 0);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.btn-danger:hover {
+  background-color: rgb(255, 70, 70);
+}
+
+
 .btn svg {
   margin-right: 8px;
 }
 
 .btn-reverse {
   background: #fff;
-  color: #000;
+  color: white;
 }
 
 .btn-block {
@@ -167,6 +213,8 @@ h3 {
 
 .btn:hover {
   transform: scale(0.98);
+  background-color: #828282;
+  /* color: yellow; */
 }
 
 .loadingSpinnerContainer {
@@ -195,6 +243,12 @@ h3 {
 {
   padding: 50px;
   min-width: 50px;
+}
+
+table, th, td {
+  /* border: 1px solid black; */
+  border-collapse: collapse;
+  padding: 5px;
 }
 
 /* CSS for Search Bar */

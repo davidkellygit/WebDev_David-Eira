@@ -47,6 +47,28 @@ const registerUser = asyncHandler(async (req, res) => {
     
 })
 
+// @desc    Update user
+// @route   PUT /api/users/
+// @access  Private
+const updateUser = asyncHandler(async (req, res) => {
+
+    const user = await User.findById(req.user.id)
+
+    // Check for user
+    if(!user) {
+        res.status(401)
+        throw new Error('User not found')
+        
+    } 
+
+
+    const updatedUser= await Instrument.findByIdAndUpdate(req.params.id, req.body, {
+        new: true
+    })
+    res.status(200).json(updatedUser)
+
+})
+
 
 // @desc    Authenticate user
 // @route   POST /api/users/login
@@ -97,5 +119,6 @@ const generateToken = (id) => {
 module.exports = {
     registerUser,
     loginUser,
+    updateUser,
     getMe,
 }

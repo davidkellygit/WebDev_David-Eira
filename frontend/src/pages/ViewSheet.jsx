@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useNavigate, useParams } from "react-router-dom"
-import { useState } from "react"
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
+import { useSelector, useDispatch } from 'react-redux'
 import { toast } from "react-toastify"
 import { Document, Page, pdfjs } from "react-pdf"
 import PDF from '../components/PDF'
@@ -12,6 +12,8 @@ export default function ViewSheet(){
     const {id} = useParams()
     const [sheet, setSheet] = useState()
     const navigate = useNavigate()
+    const { user } = useSelector((state) => state.auth)
+
 
     pdfjs.GlobalWorkerOptions.workerSrc =
     `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -60,7 +62,7 @@ export default function ViewSheet(){
     `https://cors-anywhere.herokuapp.com/http://localhost:5000/api/uploads/${sheet && sheet.filename}`
  
     // const url =
-    // `http://localhost:5000/api/uploads/${sheet && sheet.filename}`
+    // `localhost:5000/api/uploads/${sheet && sheet.filename}`
  
 
 
@@ -68,6 +70,7 @@ export default function ViewSheet(){
         <>
         <div className="container">
             <div className="row align-items-center">
+                <br/>
                 <h1>
                 {sheet && sheet.name}
                 </h1>
@@ -89,7 +92,16 @@ export default function ViewSheet(){
                 {/* <img src='https://musescore.com/static/musescore/scoredata/g/8fbceb3e46eb0cf31b7f20922556d3f5ebcfa43d/score_0.png@280x390?no-cache=1621346013&bgclr=ffffff&fmt=webp' width="800px" height="2100px" /> */}
                 </div>
                 <div className="col-sm-5">
-                    <p>Arranged for: {sheet && sheet.inst}</p>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Arranged for:</th>
+                                <td>{sheet && sheet.inst}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <button className="btn btn-block">Download</button>
                 </div>
             </div>
 

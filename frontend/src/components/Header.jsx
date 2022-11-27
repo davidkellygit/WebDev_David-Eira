@@ -18,7 +18,7 @@ function Header() {
   return (
     <>
     {/*Makes header background blue (Bootstrap)*/}
-    <div className='bg-info'>
+    {/* <div className='bg-info'> */}
       <header className='header'>
           <div className='logo'>
               <Link to='/'>OhSheet!</Link>
@@ -53,7 +53,7 @@ function Header() {
             
           </ul>
       </header>
-    </div>
+    {/* </div> */}
     </>
   )
 }

@@ -1,5 +1,4 @@
 const asyncHandler = require('express-async-handler')
-
 const Instrument = require('../models/instrumentModel')
 const User = require('../models/userModel')
 
@@ -25,8 +24,8 @@ const getSheetByID = asyncHandler(async (req, res) => {
 
 
 // @desc    Get instruments
-// @route   GET /api/instruments
-// @access  Private
+// @route   GET /api/instruments/all
+// @access  Public
 const getAllInstruments = asyncHandler(async (req, res) => {
     const instruments = await Instrument.find()
 
@@ -58,12 +57,12 @@ const setInstrument = asyncHandler(async (req, res) => {
 })
 
 // @desc    Update instrument
-// @route   PUT /api/instruments/:ID
+// @route   PUT /api/instruments/:id
 // @access  Private
 const updateInstrument = asyncHandler(async (req, res) => {
-    const goal = await Instrument.findById(req.params.id)
+    const instrument = await Instrument.findById(req.params.id)
 
-    if(!goal) {
+    if(!instrument) {
         res.status(400)
         throw new Error('Instrument not found')
     }
@@ -97,7 +96,7 @@ const updateInstrument = asyncHandler(async (req, res) => {
 const deleteInstrument = asyncHandler(async (req, res) => {
     const instrument = await Instrument.findById(req.params.id)
 
-    if(!goal) {
+    if(!instrument) {
         res.status(400)
         throw new Error('Instrument not found')
     }
