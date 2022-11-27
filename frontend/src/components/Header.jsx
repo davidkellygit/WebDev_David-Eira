@@ -15,44 +15,45 @@ function Header() {
     navigate('/')
   }
 
-  
-
   return (
     <>
-    <header className='header'>
-        <div className='logo'>
-            <Link to='/'>OhSheet!</Link>
-        </div>
-        <ul>
-            {user ? (
-            <>  
-            <li>
-                <button className='btn' onClick={onLogout}>
-                  <FaSignOutAlt /> Logout
-                </button>
-            </li>
-            <li>
+    {/*Makes header background blue (Bootstrap)*/}
+    <div className='bg-info'>
+      <header className='header'>
+          <div className='logo'>
+              <Link to='/'>OhSheet!</Link>
+          </div>
+          <ul>
+              {user ? (
+              <>  
+              <li>
+                  <button className='btn' onClick={onLogout}>
+                    <FaSignOutAlt /> Logout
+                  </button>
+              </li>
+              <li>
                 <Link to='/profile'>
                   <FaUser /> Profile
                 </Link>
-            </li>
-            </>
-            ) : (
-            <>
-            <li>
-                <Link to='/login'>
-                  <FaSignInAlt /> Login
-                </Link>
-            </li>
-            <li>
-                <Link to='/register'>
-                  <FaUser /> Register
-                </Link>
-            </li>
-            </>)}
-          
-        </ul>
-    </header>
+              </li>
+              </>
+              ) : (
+              <>
+              <li>
+                  <Link to='/login'>
+                    <FaSignInAlt /> Login
+                  </Link>
+              </li>
+              <li>
+                  <Link to='/register'>
+                    <FaUser /> Register
+                  </Link>
+              </li>
+              </>)}
+            
+          </ul>
+      </header>
+    </div>
     </>
   )
 }

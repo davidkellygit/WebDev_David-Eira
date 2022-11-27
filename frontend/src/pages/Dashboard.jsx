@@ -39,28 +39,32 @@ function Dashboard() {
 
     return (
         <>
-        <div>Dashboard</div>
-        <br/>
-        <div>
-            <input type="text" placeholder="Search..." className="search" onChange={(event) => handleQueryChange(event)}/>
-            <ul className="list">
-            {filteredInstrument && filteredInstrument.map((item) => {
-                return(
-                    <><p><a href={`/sheet/${item._id}`}>{item.name}</a></p></>
-                )
-            })}
-            </ul>
-        </div>
+        {/*Makes Light Gray Background (Bootstrap)*/}
+        <div className='bg-light'> 
+            <div>What score are you looking for?</div>
+            <br/>
+            <div>
+                <input type="text" placeholder="Search..." className="search" onChange={(event) => handleQueryChange(event)}/>
+                <ul className="list">
+                {filteredInstrument && filteredInstrument.map((item) => {
+                    return(
+                        <><p><a href={`/sheet/${item._id}`}>{item.name}</a></p></>
+                    )
+                })}
+                </ul>
+            </div>
 
-        <div className='container'>
-        <div className="row">
-            {instruments && instruments.map((item) => {
-                return(
-                    <InstrumentItem key={item._id} item = {item}/>
-                )
-            })}
+            <div className='container'> 
+                <div className="row">
+                    {instruments && instruments.map((item) => {
+                        return(
+                            <InstrumentItem key={item._id} item = {item}/>
+                            )
+                        })}
+                </div>
+            </div>
         </div>
-        </div>
+        
 
         </>
         
