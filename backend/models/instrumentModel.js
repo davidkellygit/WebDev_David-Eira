@@ -7,6 +7,10 @@ const instrumentSchema = mongoose.Schema(
             required: true,
             ref: 'User'
         },
+        filename: {
+            type: String,
+            required: [true, 'Please upload score']
+        },
         name: {
             type: String,
             required: [true, 'Please add the name of your score']

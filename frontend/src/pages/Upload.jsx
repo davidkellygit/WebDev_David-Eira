@@ -9,12 +9,14 @@ import axios from 'axios'
 
 function Upload() {
   const [formData, setFormData] = useState({
+    filename: '',
     name: '',
-    type: '',
-    type2: '',
+    inst: '',
+    inst2: '',
   })
+  const [fileUpload, setFileUpload] = useState()
 
-  const { name, type, type2 } = formData
+  const { filename, name, inst, inst2 } = formData
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -45,33 +47,51 @@ function Upload() {
     }))
   }
 
+  const handleFileUpload = (e) => {
+    setFileUpload(e.currentTarget.files[0])
+
+  }
+
   const onSubmit = async (e) => {
     e.preventDefault()
 
-
-    const scoreData = {
-       name,
-       type,
-       type2,
-     }
-
-     const config = {
+    const imageData = new FormData()
+    imageData.append('file', fileUpload)
+    console.log(imageData)
+    
+    const config = {
       headers: {
         Authorization: `Bearer ${user.token}`,
       }
      }
 
-      
-    await axios.post('/api/instruments',scoreData, config).then((response) => { 
-      console.log(response.data)
+    await axios.post('/api/uploads', imageData, config).then(async(multerRes) => {
+     
+      if(multerRes.data.filename) {
 
-      if(response.data){
-        toast.success("Upload successful")
-      } 
-      
+
+        const scoreData = {
+          filename: multerRes.data.filename,
+          name: name,
+          inst: inst,
+          inst2: inst2,
+        }
+
+        console.log(scoreData)
+   
+        await axios.post('api/instruments', scoreData, config).then((response) => {
+          console.log(response.data)
+          
+          if(response.data){
+            toast.success("Upload successful")
+            navigate('/sheet/'+response.data._id)
+          }
+        })
+      }
+
     })
 
-      
+  
     
     }
   
@@ -92,7 +112,13 @@ function Upload() {
       <section className='form'>
         <form onSubmit={onSubmit}>
           <div className='form-group'>
-            <input type='file'/>
+            <input 
+              type='file'
+              className='form-control'
+              id='file'
+              name='file'
+              onChange={(e)=>{handleFileUpload(e)}}
+            />
           </div>
           <div className='form-group'>
             <input
@@ -109,9 +135,9 @@ function Upload() {
             <input
               type='text'
               className='form-control'
-              id='type'
-              name='type'
-              value={type}
+              id='inst'
+              name='inst'
+              value={inst}
               placeholder='Please specify instrumentation'
               onChange={onChange}
             />
@@ -120,9 +146,9 @@ function Upload() {
             <input
               type='text'
               className='form-control'
-              id='type2'
-              name='type2'
-              value={type2}
+              id='inst2'
+              name='inst2'
+              value={inst2}
               placeholder='(Optional) Please specify any additional instrumentation'
               onChange={onChange}
             />

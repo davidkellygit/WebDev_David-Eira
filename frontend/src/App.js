@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -8,7 +8,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Upload from './pages/Upload';
 import ViewSheet from './pages/ViewSheet';
-
+import Profile from './pages/Profile';
 
 function App() {
   
@@ -24,6 +24,7 @@ function App() {
             <Route path='/register' element={<Register/>} />
             <Route path='/upload' element={<Upload/>} />
             <Route path='/sheet/:id' element={<ViewSheet/>} />
+            <Route path='/profile' element={<Profile/>} />
           </Routes>
         </div>
 

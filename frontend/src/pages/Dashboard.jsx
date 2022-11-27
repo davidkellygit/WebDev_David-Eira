@@ -52,13 +52,14 @@ function Dashboard() {
             </ul>
         </div>
 
-
+        <div className='container'>
         <div className="row">
             {instruments && instruments.map((item) => {
                 return(
                     <InstrumentItem key={item._id} item = {item}/>
                 )
             })}
+        </div>
         </div>
 
         </>

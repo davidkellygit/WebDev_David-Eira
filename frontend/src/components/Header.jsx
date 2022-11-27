@@ -21,20 +21,20 @@ function Header() {
     <>
     <header className='header'>
         <div className='logo'>
-            <Link to='/'>InstruRent</Link>
+            <Link to='/'>OhSheet!</Link>
         </div>
         <ul>
             {user ? (
             <>  
             <li>
-                <Link to='/upload'>
-                  <FaFileUpload /> Upload
-                </Link>
-            </li>  
-            <li>
                 <button className='btn' onClick={onLogout}>
                   <FaSignOutAlt /> Logout
                 </button>
+            </li>
+            <li>
+                <Link to='/profile'>
+                  <FaUser /> Profile
+                </Link>
             </li>
             </>
             ) : (

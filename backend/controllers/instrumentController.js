@@ -45,9 +45,10 @@ const setInstrument = asyncHandler(async (req, res) => {
     }
 
     const instrument = await Instrument.create({
+        filename: req.body.filename,
         name: req.body.name,
-        inst: req.body.type,
-        inst2: req.body.type2,
+        inst: req.body.inst,
+        inst2: req.body.inst,
         onLoan: req.body.onLoan,
         user: req.user.id,
     })
