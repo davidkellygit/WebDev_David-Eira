@@ -49,7 +49,7 @@ function Dashboard() {
             {user ? (
               <>
               <h3>Welcome back {user.name}!</h3>
-              <div><p>What score are you looking for today</p></div>
+              <div><p>What score are you looking for today?</p></div>
 
               </>
               ) : (
