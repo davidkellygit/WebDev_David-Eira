@@ -12,7 +12,7 @@ const uploadFile = asyncHandler(async(req, res) => {
 })
 
 const getFile = asyncHandler(async(req, res) => {
-    res.sendFile(path.join(__dirname, `../upload/$req.params.name}`))
+    res.sendFile(path.join(__dirname, `../upload/${req.params.name}`))
 })
 
 module.exports = {

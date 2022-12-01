@@ -59,7 +59,7 @@ export default function ViewSheet(){
     },[])
 
     const url =
-    `https://cors-anywhere.herokuapp.com/http://localhost:5000/api/uploads/${sheet && sheet.filename}`
+    `http://192.168.43.222:5000/api/uploads/${sheet && sheet.filename}`
  
     // const url =
     // `localhost:5000/api/uploads/${sheet && sheet.filename}`
@@ -77,13 +77,9 @@ export default function ViewSheet(){
             </div>
             <br/>
             <div className="row">
-                <div className="col-sm-7">
-                <Document
-		            file={url}
-		            onLoadSuccess={onDocumentLoadSuccess}
-	            >
-		            <Page pageNumber={pageNumber} />
-	            </Document>
+                <div className="col-sm-8">
+                    <iframe src={url} height="400px"></iframe>
+               
                 {/* <Document
                     file={`localhost:5000/api/uploads/${sheet && sheet.filename}`}>       
                 </Document> */}
@@ -91,7 +87,7 @@ export default function ViewSheet(){
                 {/* <object data={`localhost:5000/api/uploads/${sheet && sheet.filename}`} type="application/pdf" width="100%" height="100%"></object> */}
                 {/* <img src='https://musescore.com/static/musescore/scoredata/g/8fbceb3e46eb0cf31b7f20922556d3f5ebcfa43d/score_0.png@280x390?no-cache=1621346013&bgclr=ffffff&fmt=webp' width="800px" height="2100px" /> */}
                 </div>
-                <div className="col-sm-5">
+                <div className="col-sm-4">
                     <table>
                         <tbody>
                             <tr>
@@ -101,7 +97,7 @@ export default function ViewSheet(){
                         </tbody>
                     </table>
                     <br/>
-                    <button className="btn btn-block">Download</button>
+                    <button className="btn btn-block" href={url}>Download</button>
                 </div>
             </div>
 
